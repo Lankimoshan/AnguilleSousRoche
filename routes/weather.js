@@ -1,5 +1,6 @@
 const url = require('url');
 const { getWeatherData } = require('../services/weatherService');
+const getMoodAdvice = require('../utils/moodAdvisor');
 
 async function weatherRoute(req, res) {
   const parsedUrl = url.parse(req.url, true);
@@ -25,5 +26,10 @@ async function weatherRoute(req, res) {
     res.end(JSON.stringify({ error: error.message }));
   }
 }
+
+res.end(JSON.stringify({
+  weather,
+  moodAdvice: getMoodAdvice(weather.temp)
+}));
 
 module.exports = weatherRoute;
