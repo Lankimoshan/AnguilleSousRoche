@@ -33,13 +33,6 @@ const requestHandler = async (req, res) => {
   }
 };
 
-if (path === '/protected') {
-  authMiddleware(req, res, () => {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ message: 'Access granted', user: req.user }));
-  });
-}
-
 const server = http.createServer(requestHandler);
 
 server.listen(PORT, () => {
