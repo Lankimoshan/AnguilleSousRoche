@@ -2,6 +2,7 @@ const http = require('http');
 const url = require('url');
 const weatherRoute = require('./routes/weather');
 const usersRoute = require('./routes/users');
+const authMiddleware = require('./middleware/authMiddleware');
 
 const PORT = process.env.PORT || 3000;
 
@@ -31,6 +32,13 @@ const requestHandler = async (req, res) => {
     res.end(JSON.stringify({ error: 'Method not allowed' }));
   }
 };
+
+if (path === '/protected') {
+  authMiddleware(req, res, () => {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: 'Access granted', user: req.user }));
+  });
+}
 
 const server = http.createServer(requestHandler);
 
