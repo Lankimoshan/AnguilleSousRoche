@@ -19,7 +19,7 @@ async function usersRoute(req, res) {
       }
     } else if (path.startsWith('/users/')) {
       // Get user by ID
-      const userId = path.split('/')[2];
+      const userId =                              path.split('/')[2];
       try {
         const user = await getUserById(userId);
         if (!user) {
