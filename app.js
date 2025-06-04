@@ -1,6 +1,7 @@
 const http = require('http');
 const url = require('url');
 const weatherRoute = require('./routes/weather');
+const usersRoute = require('./routes/users');
 
 const PORT = process.env.PORT || 3000;
 
@@ -19,6 +20,8 @@ const requestHandler = async (req, res) => {
       `);
     } else if (path === '/weather') {
       await weatherRoute(req, res);
+    } else if (path === '/users' || path.startsWith('/users/')) {
+        await usersRoute(req, res);
     } else {
       res.writeHead(404, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ error: 'Resource not found' }));
