@@ -1,7 +1,7 @@
 {
   "name": "AnguilleSousRoche",
   "version": "1.0.0",
-  "description": "A very good project",
+  "description": "A very very good project",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
