@@ -13,7 +13,8 @@ const weatherProverbs = [
 function predictWithProverb(temperature, humidity) {
   const index = Math.floor(Math.random() * weatherProverbs.length);
   const proverb = weatherProverbs[index];
-
+ 
+  
   let advice;
   if (temperature > 30 && humidity > 70) {
     advice = "It's hot and humid. Stay inside!";
