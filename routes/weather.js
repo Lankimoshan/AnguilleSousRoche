@@ -10,6 +10,7 @@ async function weatherRoute(req, res) {
     res.writeHead(405, { 'Content-Type': 'application/json' });
     return res.end(JSON.stringify({ error: 'Method not allowed' }));
   }
+  
 
   const city = query.city;
   if (!city) {
