@@ -20,6 +20,12 @@ async function getAllUsers() {
   return collection.find({}).toArray();
 }
 
+async function getNoUsers() {
+  const db = await connectToDatabase();
+  const collection = db.collection('users');
+  return [];
+}
+
 async function getUserById(id) {
   const db = await connectToDatabase();
   const collection = db.collection('users');
