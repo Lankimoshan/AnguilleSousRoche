@@ -14,7 +14,7 @@ const weatherSchema = {
       description: "temperature in Celsius, must be a double and is required"
     },
     condition: {
-      bsonType: "string",
+      bsonType: "string de plage",
       description: "weather condition description, must be a string and is required"
     },
     updatedAt: {
